@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <header>
+      <h4>Bookers2</h4>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "Users", 
+        </li>
+    </header>
     <%= yield %>
   </body>
 </html>
