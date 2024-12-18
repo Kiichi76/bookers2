@@ -1,14 +1,13 @@
 <h2>User info</h2>
-
-<%= image_tag @user.get_profile_image(100, 100) %>
+<%= image_tag current_user.get_profile_image(100, 100) %>
 <table>
     <tr>
         <th>name</th>
-        <th><%= @user.name %></th>
+        <th><%= current_user.name %></th>
     </tr>
     <tr>   
         <th>introduction</th>
-        <th><%= @user.introduction %></th>
+        <th><%= current_user.introduction %></th>
     </tr>
 </table>
 <%= link_to edit_user_path(current_user.id) do %>
@@ -26,21 +25,22 @@
     <%= f.submit "Create Book" %>
 <% end %>
 
-<h2>Books</h2>
+<h2>User</h2>
+
 <table>
     <thead>
         <tr>
+            <th>image</th>
+            <th>name</th>
             <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
         </tr>
     </thead>
     <tbody>
-        <% @books.each do |book| %>
+        <% @user.each do |users| %>
             <tr>
-                <th><%= image_tag book.user.get_profile_image(80, 80) %></th>
-                <th><%= link_to book.title, book_path(book.id) %></th>
-                <th><%= book.body %></th>
+                <th><%= image_tag users.get_profile_image(80, 80) %></th>
+                <th><%= users.name %></th>
+                <th><%= link_to "Show", user_path(users.id) %></th>
             </tr>
         <% end %>
     </tbody>
