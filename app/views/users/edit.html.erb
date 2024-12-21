@@ -1,23 +1,41 @@
-<% if @user.errors.any? %>
-    <%= @user.errors.count %> error prohibited this obj from being saved:
-    <ul>
-        <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>User info</h2>
+            <% if @user.errors.any? %>
+                <%= @user.errors.count %> error prohibited this obj from being saved:
+                <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            <% end %>
 
-<h2>User info</h2>
 
-<%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
 
-    <%= f.label :profile_image, "image" %>
-    <%= f.file_field :profile_image, accept: "image/*" %>
-
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction %>
-
-    <%= f.submit "Update User" %>
-<% end %>
+            <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+                <div>
+                    <%= f.label :name %>
+                </div>
+                <div>
+                    <%= f.text_field :name %>
+                </div>
+                <div>
+                    <%= f.label :profile_image, "image" %>
+                </div>
+                <div>
+                    <%= f.file_field :profile_image, accept: "image/*" %>
+                </div>
+                <div>
+                    <%= f.label :introduction %>
+                </div>
+                <div>
+                    <%= f.text_area :introduction %>
+                </div>
+                <div>
+                    <%= f.submit "Update User" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

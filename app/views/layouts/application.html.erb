@@ -17,9 +17,7 @@
         <div class="container">
           <div class="navbar-brand">
             <%= link_to "Bookers", root_path %>
-          </div>
-          
-          
+          </div>      
             <% if user_signed_in? %>
               <ul class="navbar-nav">
                 <li>
@@ -76,7 +74,13 @@
     </div>
     <%= yield %>
     <footer>
-      <p>CopyRight Infratop.inc</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
